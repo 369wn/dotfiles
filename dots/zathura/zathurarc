@@ -1,0 +1,60 @@
+#Configs
+
+set selection-clipboard clipboard
+set window-title-home-tilde true
+set statusbar-home-tilde true
+set adjust-open "best-fit"
+set adjust-open width
+set recolor true
+set guioptions "Hello"
+
+# Keybinds
+map <C-Tab> toggle_statusbar
+
+#Colors
+
+set default-fg                "#ddd"
+set default-bg 			          "#1c1c1c1c"
+
+set completion-bg		          "#111111"
+set completion-fg		          "#ddd"
+set completion-highlight-bg	  "#575268"
+set completion-highlight-fg	  "#2c2c2c"
+set completion-group-bg		    "#111111"
+set completion-group-fg		    "#8AADF4"
+
+set statusbar-fg		          "#ddd"
+set statusbar-bg		          "#111111"
+
+set notification-bg		        "#111111"
+set notification-fg		        "#ddd"
+set notification-error-bg	    "#111111"
+set notification-error-fg	    "#ED8796"
+set notification-warning-bg	  "#111111"
+set notification-warning-fg	  "#FAE3B0"
+
+set inputbar-fg			          "#ddd"
+set inputbar-bg 		          "#11111111"
+
+
+set index-fg			            "#ddd"
+set index-bg			            "#1c1c1c"
+set index-active-fg		        "#ddd"
+set index-active-bg		        "#111111"
+
+set render-loading-bg		      "#1c1c1c"
+set render-loading-fg		      "#ddd"
+
+set highlight-fg              "#1c1c1c"
+set highlight-color           "#fff"
+set highlight-active-color	  "#1c1c1c"
+
+
+#
+# Recolor mode settings
+#
+
+set recolor-lightcolor          "#15151515" # Background
+set recolor-darkcolor           "#f8f8f2f8" # Foreground
+
+
