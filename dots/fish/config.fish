@@ -21,7 +21,7 @@ if status is-interactive
     alias nvimconfig='nvim ~/.config/nvim'
     alias dots='nvim ~/.config'
     set CONFIG ~/.config
-    starship init fish | source
+    #starship init fish | source
 
 set -U fish_greeting
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -32,7 +32,3 @@ if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
     startx
 end
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]
-    # Tenta anexar a uma sessão existente
-    tmux attach || tmux new
-end
