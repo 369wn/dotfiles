@@ -45,16 +45,14 @@ set index-active-bg		        "#111111"
 set render-loading-bg		      "#1c1c1c"
 set render-loading-fg		      "#ddd"
 
-set highlight-fg              "#1c1c1c"
-set highlight-color           "#fff"
-set highlight-active-color	  "#1c1c1c"
 
 
 #
 # Recolor mode settings
 #
 
-set recolor-lightcolor          "#15151515" # Background
-set recolor-darkcolor           "#f8f8f2f8" # Foreground
+set recolor-lightcolor "rgba(0, 0, 0, 0)"
+set recolor-darkcolor "rgba(255, 255, 255, 1)"
 
-
+map i recolor
+set recolor true

@@ -78,7 +78,7 @@ static const char *brightdown[] = {"brightnessctl", "set", "10%-", NULL};
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-x", "550","-y","300","-z","250","-l","5","-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browser[] = {"zen-browser", NULL};
 

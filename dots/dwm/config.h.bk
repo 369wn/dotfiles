@@ -15,7 +15,7 @@ static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#1f1f1f";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#cccccc";
-static const char col_cyan[]        = "#eeeeee";
+static const char col_cyan[]        = "#afafaf";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, "#000" },
@@ -70,20 +70,22 @@ static const Layout layouts[] = {
 static const char *powermenu[] = {"/bin/sh", "-c", "~/.config/.scripts/powermenu.sh", NULL};
 static const char *screenshotclip[] = {"/bin/sh", "-c", "~/.config/.scripts/screenshotclip.sh", NULL};
 static const char *screenshotpictures[] = {"/bin/sh", "-c", "~/.config/.scripts/screenshotpictures.sh", NULL};
-static const char *volup[] = {"pulsemixer", "--change-volume", "+5", NULL};
-static const char *voldown[] = {"pulsemixer", "--change-volume", "-5", NULL};
+static const char *volup[] = {"pulsemixer", "--change-volume", "+2", NULL};
+static const char *voldown[] = {"pulsemixer", "--change-volume", "-2", NULL};
 static const char *exec[] = {"/bin/sh", "-c", "~/.config/.scripts/exec.sh", NULL};
 static const char *brightup[] = {"brightnessctl", "set", "10%+", NULL};
 static const char *brightdown[] = {"brightnessctl", "set", "10%-", NULL};
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-x", "550","-y","300","-z","250","-l","5","-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *browser[] = {"zen-browser", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_y,      spawn,          {.v = browser } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   /* personal scripts */
   { MODKEY,                       XK_s,      spawn,          {.v = screenshotclip} },

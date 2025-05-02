@@ -2,7 +2,7 @@ if status is-interactive
     alias s 'sudo'
     alias p 'pacman'
     alias jbl 'bluetoothctl connect 70:99:1C:A6:9E:BA'
-    alias fone 'bluetoothctl remove 41:42:27:90:00:00&& bluetoothctl connect 41:42:27:90:00:00'
+    alias fone 'bluetoothctl remove 41:42:27:90:00:00 && bluetoothctl scan on && bluetoothctl connect 41:42:27:90:00:00'
     alias djbl 'bluetoothctl disconnect 70:99:1C:A6:9E:BA'
     alias dfone 'bluetoothctl disconnect 41:42:27:90:00:00'
     alias grayon 'vibrant-cli eDP-1 0.0'
