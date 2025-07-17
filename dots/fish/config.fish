@@ -1,6 +1,4 @@
 if status is-interactive
-    alias s 'sudo'
-    alias p 'pacman'
     alias jbl 'bluetoothctl connect 70:99:1C:A6:9E:BA'
     alias fone 'bluetoothctl remove 41:42:27:90:00:00 && bluetoothctl scan on && bluetoothctl connect 41:42:27:90:00:00'
     alias djbl 'bluetoothctl disconnect 70:99:1C:A6:9E:BA'
@@ -8,18 +6,15 @@ if status is-interactive
     alias grayon 'vibrant-cli eDP-1 0.0'
     alias grayoff 'vibrant-cli eDP-1 1.0'
     
-    alias files 'ranger'
     alias ..="cd .." 
     alias ...="cd ../.." 
     alias ....="cd ../../.." 
     alias .....="cd ../../../.." 
     alias ......="cd ../../../../.." 
     alias s "sudo"
-    alias weather='curl wttr.in'
-    alias volup='pulsemixer --change-volume +5'
-    alias voldown='pulsemixer --change-volume -5'
     alias nvimconfig='nvim ~/.config/nvim'
     alias dots='nvim ~/.config'
+    alias vim='nvim'
     set CONFIG ~/.config
 
 

@@ -1,28 +1,20 @@
 [global]
-    # Posição das notificações
+    # --- Posição e Dimensões (Mantidas) ---
     origin = top-right
     offset = 10x50
     alignment = right
-
-    # Dimensões e espaçamento
     width = 300
     height = 100
     padding = 5
     horizontal_padding = 8
-    frame_width = 1
+    frame_width = 2
     separator_height = 2
 
-    # Cores (escala de cinza com alto contraste)
-    background = "#222222"
-    foreground = "#FFFFFF"
-    frame_color = "#444444"
-    separator_color = "#666666"
-
-    # Fontes
+    # --- Fontes (Mantidas) ---
     font = FiraCode Nerd Font Propo 10
     line_height = 0
 
-    # Comportamento
+    # --- Comportamento (Mantido) ---
     idle_threshold = 120
     ignore_dbusclose = false
     show_age_threshold = 60
@@ -35,23 +27,42 @@
     hide_duplicate_count = false
     show_indicators = yes
     shrink = no
-    transparency = 0
     notification_limit = 5
+    
+    # ============================
+    # --- TEMA ROXO ---
+    # ============================
+    
+    # --- Cores Globais ---
+    background = "#0C0012"
+    foreground = "#CBC9CC"
+    frame_color = "#9C90AA" # Lavanda para a borda padrão
+    separator_color = "#443A67" # Roxo escuro para a linha divisória
+    
+    # --- Transparência ---
+    # Valor de 0 (opaco) a 100 (invisível). 15 é um bom valor inicial.
+    transparency = 15
 
+# --- Urgência Baixa (ex: mudança de música) ---
+# Cores mais sutis para não distrair.
 [urgency_low]
-    background = "#333333"
-    foreground = "#CCCCCC"
-    frame_color = "#555555"
+    background = "#211E46" # Fundo um pouco mais claro
+    foreground = "#9C90AA" # Texto lavanda
+    frame_color = "#443A67" # Borda roxo escuro
     timeout = 5
 
+# --- Urgência Normal (padrão) ---
+# Usa as cores globais.
 [urgency_normal]
-    background = "#222222"
-    foreground = "#FFFFFF"
-    frame_color = "#444444"
+    background = "#0C0012"
+    foreground = "#CBC9CC"
+    frame_color = "#9C90AA"
     timeout = 10
 
+# --- Urgência Crítica (ex: bateria fraca) ---
+# Borda vermelha para chamar atenção máxima.
 [urgency_critical]
-    background = "#111111"
-    foreground = "#FFFFFF"
-    frame_color = "#FF0000"
+    background = "#0C0012"
+    foreground = "#F38BA8" # Texto vermelho para combinar com a borda
+    frame_color = "#F38BA8" # Um vermelho vibrante, mas estiloso
     timeout = 0

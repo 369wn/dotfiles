@@ -1,43 +1,47 @@
 /* appearance */
-static const unsigned int borderpx  = 2;  /* border pixel of windows */
-static const unsigned int gappx     = 3;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx      = 2;        /* border pixel of windows */
+static const unsigned int gappx         = 5;        /* gaps between windows */
+static const unsigned int snap          = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayonleft = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int showsystray        = 1;     /* 0 means no systray */
+static const int showbar            = 1;     /* 0 means no bar */
+static const int topbar             = 1;     /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=10";
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#1f1f1f";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#cccccc";
-static const char col_cyan[]        = "#afafaf";
+
+// --- Paleta de Cores Roxo ---
+static const char col_bg[]          = "#0C0012"; // Fundo roxo super escuro
+static const char col_bg_alt[]      = "#211E46"; // Fundo alternativo (bordas inativas)
+static const char col_fg[]          = "#CBC9CC"; // Texto principal (cinza claro)
+static const char col_lavender[]    = "#9C90AA"; // Destaque secundário (tags inativas, status)
+static const char col_vibrant[]     = "#BE95FF"; // Destaque principal (borda ativa, tag ativa)
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, "#000" },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray1, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    /* fg          bg          border   */
+    [SchemeNorm]        = { col_fg,     col_bg,     col_bg_alt },    // Janela Inativa
+    [SchemeSel]         = { col_fg,     col_bg,     col_vibrant },   // Janela Ativa
+    [SchemeStatus]      = { col_lavender, col_bg,   "#000000"  }, // Statusbar (direita)
+    [SchemeTagsSel]     = { col_bg,     col_vibrant, "#000000"  }, // Tag Ativa
+    [SchemeTagsNorm]    = { col_lavender, col_bg,   "#000000"  }, // Tags Inativas
+    [SchemeInfoSel]     = { col_vibrant, col_bg,    "#000000"  }, // Título da Janela Ativa
+    [SchemeInfoNorm]    = { col_fg,     col_bg,     "#000000"  }, // Título da Janela Inativa
 };
 
 /* tagging */
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+// Ícones do Nerd Fonts para as tags
+static const char *tags[] = { "I", "II", "III", "IV", "V",  "VI", "VII", "VIII", "IX" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+    /* xprop(1):
+     * WM_CLASS(STRING) = instance, class
+     * WM_NAME(STRING) = title
+     */
+    /* class      instance    title       tags mask     isfloating   monitor */
+    { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+    { "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 }, // Abre o Firefox na tag 2 (www)
 };
 
 /* layout(s) */
@@ -48,25 +52,24 @@ static const int attachbelow = 1;    /* 1 means attach after the currently activ
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+    /* symbol     arrange function */
+    { "[]=",      tile },    /* first entry is default */
+    { "><>",      NULL },    /* no layout function means floating behavior */
+    { "[M]",      monocle },
 };
 
-/* key definitions */
+/* key definitions - MANTIDAS DO SEU ARQUIVO ORIGINAL */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+    { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+    { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+    { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+    { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* scripts */
-
 static const char *powermenu[] = {"/bin/sh", "-c", "~/.config/.scripts/powermenu.sh", NULL};
 static const char *screenshotclip[] = {"/bin/sh", "-c", "~/.config/.scripts/screenshotclip.sh", NULL};
 static const char *screenshotpictures[] = {"/bin/sh", "-c", "~/.config/.scripts/screenshotpictures.sh", NULL};
@@ -78,7 +81,8 @@ static const char *brightdown[] = {"brightnessctl", "set", "10%-", NULL};
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-x", "550","-y","300","-z","250","-l","5","-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
+// dmenu agora usa as novas variáveis de cor, herdando o tema automaticamente
+static const char *dmenucmd[] = { "dmenu_run", "-x", "550","-y","300","-z","250","-l","5","-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_vibrant, "-sf", col_bg, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browser[] = {"zen-browser", NULL};
 

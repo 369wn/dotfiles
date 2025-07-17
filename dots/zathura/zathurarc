@@ -1,58 +1,63 @@
-#Configs
-
+# --- Configs ---
 set selection-clipboard clipboard
 set window-title-home-tilde true
 set statusbar-home-tilde true
 set adjust-open "best-fit"
 set adjust-open width
-set recolor true
-set guioptions "Hello"
+set guioptions none
 
-# Keybinds
+# --- Keybinds ---
 map <C-Tab> toggle_statusbar
+map i recolor
 
-#Colors
+# ================================================
+# --- TEMA ROXO (VERSÃO ESCURA) ---
+# ================================================
 
-set default-fg                "#ddd"
-set default-bg 			          "#1c1c1c1c"
+# NOVO FUNDO - Um roxo mais escuro, próximo do preto.
+set default-bg                      "#0C0012"
+# Texto principal
+set default-fg                      "#D9A8FA"
 
-set completion-bg		          "#111111"
-set completion-fg		          "#ddd"
-set completion-highlight-bg	  "#575268"
-set completion-highlight-fg	  "#2c2c2c"
-set completion-group-bg		    "#111111"
-set completion-group-fg		    "#8AADF4"
+# Autocompletar da barra de comandos
+set completion-bg                   "#0C0012" # NOVO FUNDO
+set completion-fg                   "#D9A8FA"
+set completion-highlight-bg         "#BE95FF"
+set completion-highlight-fg         "#0C0012" # NOVO FUNDO (para texto do destaque)
+set completion-group-bg             "#0C0012" # NOVO FUNDO
+set completion-group-fg             "#9C90AA"
 
-set statusbar-fg		          "#ddd"
-set statusbar-bg		          "#111111"
+# Barra de Status
+set statusbar-fg                    "#D9A8FA"
+set statusbar-bg                    "#0C0012" # NOVO FUNDO
 
-set notification-bg		        "#111111"
-set notification-fg		        "#ddd"
-set notification-error-bg	    "#111111"
-set notification-error-fg	    "#ED8796"
-set notification-warning-bg	  "#111111"
-set notification-warning-fg	  "#FAE3B0"
+# Notificações
+set notification-bg                 "#0C0012" # NOVO FUNDO
+set notification-fg                 "#D9A8FA"
+set notification-error-bg           "#0C0012" # NOVO FUNDO
+set notification-error-fg           "#ED8796"
+set notification-warning-bg         "#0C0012" # NOVO FUNDO
+set notification-warning-fg         "#FAE3B0"
 
-set inputbar-fg			          "#ddd"
-set inputbar-bg 		          "#11111111"
+# Barra de entrada de comandos
+set inputbar-fg                     "#D9A8FA"
+set inputbar-bg                     "#0C0012" # NOVO FUNDO
 
+# Índice/Sumário do PDF
+set index-fg                        "#9C90AA"
+set index-bg                        "#0C0012" # NOVO FUNDO
+set index-active-fg                 "#BE95FF"
+set index-active-bg                 "#443A67" # Mantido um roxo um pouco mais claro para contraste
 
-set index-fg			            "#ddd"
-set index-bg			            "#1c1c1c"
-set index-active-fg		        "#ddd"
-set index-active-bg		        "#111111"
+# Animação de carregamento
+set render-loading-bg               "#0C0012" # NOVO FUNDO
+set render-loading-fg               "#D9A8FA"
 
-set render-loading-bg		      "#1c1c1c"
-set render-loading-fg		      "#ddd"
-
-
-
-#
-# Recolor mode settings
-#
-
+# --- Configurações do Modo Recolor (COM TRANSPARÊNCIA) ---
+# Mantido como transparente, conforme seu último pedido.
+# O "branco" do PDF vira transparente
 set recolor-lightcolor "rgba(0, 0, 0, 0)"
+# O "preto" do PDF vira branco sólido
 set recolor-darkcolor "rgba(255, 255, 255, 1)"
 
-map i recolor
 set recolor true
