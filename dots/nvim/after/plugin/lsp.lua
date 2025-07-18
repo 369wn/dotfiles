@@ -1,5 +1,10 @@
-vim.opt.signcolumn = 'yes'
-
+vim.diagnostic.config({
+  virtual_text = true, -- Mostra a mensagem de erro na própria linha
+  signs = true,
+  underline = true,
+  update_in_insert = false, -- Melhora a performance ao não atualizar enquanto digita
+  severity_sort = true,
+})
 
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
