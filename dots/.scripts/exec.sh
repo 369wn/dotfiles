@@ -1,9 +1,16 @@
 #!/bin/bash
 
-# Exibe o prompt do dmenu com as novas configurações e captura o comando digitado
-cmd=$(echo "" | dmenu -x 550 -y 300 -z 250 -l 5 -fn "FiraCode Nerd Font:size=10" -nb "#111111" -nf "#bbbbbb" -sb "#afafaf" -sf "#111111" -p "Command:")
+# --- Paleta de Cores Roxo ---
+BG_NORMAL="#0C0012"      # Fundo: Roxo super escuro
+FG_NORMAL="#CBC9CC"      # Texto: Cinza claro
+BG_SELECTED="#BE95FF"   # Destaque: Roxo vibrante
+FG_SELECTED="#0C0012"      # Texto do Destaque: Roxo super escuro
 
-# Verifica se o usuário digitou algo e executa o comando
-if [ -n "$cmd" ]; then
-    eval "$cmd"
-fi
+# Usa dmenu_run para listar aplicativos e aplicar o tema
+dmenu_run -x 550 -y 300 -z 250 -l 5 \
+    -fn "FiraCode Nerd Font:size=10" \
+    -nb "${BG_NORMAL}" \
+    -nf "${FG_NORMAL}" \
+    -sb "${BG_SELECTED}" \
+    -sf "${FG_SELECTED}" \
+    -p "Run:"
