@@ -29,5 +29,7 @@ end
 
 if status is-interactive
 and not set -q TMUX
-    tmux new -As default
+    if command -v tmux >/dev/null
+        tmux new-session -s "sessao-"(echo %self)
+    end
 end
